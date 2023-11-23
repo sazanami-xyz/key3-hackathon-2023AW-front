@@ -1,8 +1,18 @@
 import React from 'react'
 
 import PropTypes from 'prop-types'
+import { useRouter } from 'next/router'
 
 const NavigationLinks = (props) => {
+
+  const router = useRouter();
+
+  const moveUpload = () => {
+    router.push({
+      pathname: '/upload',
+    });
+  };
+
   return (
     <>
       <nav className={`navigation-links-nav ${props.rootClassName} `}>
@@ -10,7 +20,7 @@ const NavigationLinks = (props) => {
         <span className="navigation-links-text1">{props.text1}</span>
         <span className="navigation-links-text2">{props.text2}</span>
         <span className="navigation-links-text3">{props.text3}</span>
-        <span className="navigation-links-text4">{props.text4}</span>
+        <span className="navigation-links-text4" onClick={moveUpload}>{props.text4}</span>
       </nav>
       <style jsx>
         {`

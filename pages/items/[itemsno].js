@@ -62,7 +62,7 @@ const Item = (props) => {
   };
 
   const CONTRACT_ADDRESS =
-  '0x5AAFC7B1c62d4fBc4f671Ec91CBeFbD452EbBAd8';
+  '0x5a2474F2C16E858a86308aACd0DB717c24B4A693';
 
   const addLike = async () => {
     try {
@@ -76,7 +76,9 @@ const Item = (props) => {
           signer
         );
         console.log('Going to pop wallet now to pay gas...');
-        let nftTxn = await connectedContract.addLike(0);
+        const tokenid = title.substring(title.indexOf(':')+2);
+        const tokenIdNo = parseInt(tokenid);
+        let nftTxn = await connectedContract.addLike(tokenIdNo);
         console.log('Mining...please wait.');
         await nftTxn.wait();
         console.log('addLike finished');
@@ -86,6 +88,12 @@ const Item = (props) => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const moveTop = () => {
+    router.push({
+      pathname: '/',
+    });
   };
 
   useEffect(() => {
@@ -124,6 +132,7 @@ const Item = (props) => {
             alt="logo"
             src="/piacere.png"
             className="item-image1"
+            onClick={moveTop}
           />
           <div className="item-nav">
             <NavigationLinks1 rootClassName="rootClassName10"></NavigationLinks1>
@@ -215,7 +224,7 @@ const Item = (props) => {
           }          
           .item-text01 {
             top: 284px;
-            right: 80px;
+            right: -10px;
             position: absolute;
           }
           .item-text06 {

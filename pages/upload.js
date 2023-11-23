@@ -5,6 +5,7 @@ import { ethers } from 'ethers';
 import { Web3Storage } from 'web3.storage'
 import Web3Mint from './utils/Web3Mint.json'
 import ImageLogo from "../public/Icons/image.svg";
+import { useRouter } from 'next/router'
 
 import NavigationLinks2 from '../components/navigation-links2'
 
@@ -56,7 +57,7 @@ const Upload = (props) => {
   };
 
   const CONTRACT_ADDRESS =
-  '0x5AAFC7B1c62d4fBc4f671Ec91CBeFbD452EbBAd8';
+  '0x5a2474F2C16E858a86308aACd0DB717c24B4A693';
 
   const askContractToMintNft = async (ipfs) => {
     try {
@@ -70,7 +71,7 @@ const Upload = (props) => {
           signer
         );
         console.log('Going to pop wallet now to pay gas...');
-        let nftTxn = await connectedContract.mintIpfsNFT('sample',ipfs);
+        let nftTxn = await connectedContract.mintIpfsNFT('PIACERE',ipfs);
         console.log('Mining...please wait.');
         await nftTxn.wait();
         console.log(
@@ -108,6 +109,14 @@ const Upload = (props) => {
       Connect to Wallet
     </button>
   );
+
+  const router = useRouter();
+
+  const moveTop = () => {
+    router.push({
+      pathname: '/',
+    });
+  };
 
   useEffect(() => {
     checkIfWalletIsConnected();
@@ -151,8 +160,9 @@ const Upload = (props) => {
         <header data-role="Header" className="upload-header">
           <img
             alt="logo"
-            src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
+            src="/piacere.png"
             className="upload-image"
+            onClick={moveTop}
           />
           <div className="upload-nav">
             <NavigationLinks2 rootClassName="rootClassName10"></NavigationLinks2>
@@ -368,7 +378,7 @@ const Upload = (props) => {
             justify-content: space-between;
           }
           .upload-image {
-            height: 2rem;
+            height: 5rem;
           }
           .upload-nav {
             display: flex;

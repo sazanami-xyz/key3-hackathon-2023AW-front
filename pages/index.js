@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { ethers } from 'ethers';
 import Web3Mint from './utils/Web3Mint.json'
 import { Buffer } from 'buffer';
+import { useRouter } from 'next/router'
 
 import NavigationLinks from '../components/navigation-links'
 import GalleryCard11 from '../components/gallery-card11'
@@ -12,7 +13,7 @@ import Link from 'next/link';
 const Search = (props) => {
 
   const CONTRACT_ADDRESS =
-  '0x5AAFC7B1c62d4fBc4f671Ec91CBeFbD452EbBAd8';
+  '0x5a2474F2C16E858a86308aACd0DB717c24B4A693';
 
   const [currentAccount, setCurrentAccount] = useState("");
 
@@ -105,6 +106,14 @@ const Search = (props) => {
     }
   };
 
+  const router = useRouter();
+
+  const moveTop = () => {
+    router.push({
+      pathname: '/',
+    });
+  };
+
   useEffect(() => {
     checkIfWalletIsConnected();
   }, []);
@@ -121,6 +130,7 @@ const Search = (props) => {
             alt="Piacere"
             src="/piacere.png"
             className="search-image"
+            onClick={moveTop}
           />
           <div className="search-nav">
             <NavigationLinks rootClassName="rootClassName10"></NavigationLinks>
