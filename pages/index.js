@@ -8,7 +8,6 @@ import { useRouter } from 'next/router'
 
 import NavigationLinks from '../components/navigation-links'
 import GalleryCard11 from '../components/gallery-card11'
-import Link from 'next/link';
 
 const Search = (props) => {
 
@@ -77,9 +76,7 @@ const Search = (props) => {
         );
         console.log('Going to pop wallet now to pay gas...');
         let nftTxn = await connectedContract.list();
-        // let nftTxn = await connectedContract.tokenURI(0);
         console.log('getting list...please wait.');
-        // await nftTxn.wait();
         let s = Buffer.from(nftTxn, 'base64').toString();
         console.log(
           'get list', nftTxn
@@ -94,10 +91,9 @@ const Search = (props) => {
         jsonObj.attribute.forEach((obj, i) => {
           worklist.push(obj);
         });
-          console.log("wawawawa : ",worklist);
-          setNftList([...nftList, ...worklist]);
+        console.log("getList result : ",worklist);
+        setNftList([...nftList, ...worklist]);
 
-        console.log("honto?: ", nftList);
       } else {
         console.log("Ethereum object doesn't exist!");
       }
@@ -188,35 +184,6 @@ const Search = (props) => {
               <GalleryCard11 image_src={item.image} key={i} title={item.name} subtitle={item.comment} image_linkurl={`/items/${item.name}`} description={item.description} like={item.like} rootClassName="rootClassName1" />
             )) : <p>No NFT Image</p> 
         }
-{/* <GalleryCard11
-            image_src="https://bafybeiherpcusmkkah4berywv76tm5zdn5q3wko6wqt5emvxiogus4j7bi.ipfs.w3s.link/0.png"
-            rootClassName="rootClassName1"
-          ></GalleryCard11> */}
-          {/* <GalleryCard11
-            image_src="{nftList[0].image}"
-            rootClassName="rootClassName1"
-          ></GalleryCard11> */}
-          {/* <GalleryCard11 rootClassName="rootClassName"></GalleryCard11>
-          <GalleryCard11
-            image_src="https://images.unsplash.com/photo-1579551053957-ee77f9b970c7?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDQ2fHx3b29kc3xlbnwwfHx8fDE2MjY0NDc1ODg&amp;ixlib=rb-1.2.1&amp;w=1000"
-            rootClassName="rootClassName1"
-          ></GalleryCard11>
-          <GalleryCard11
-            image_src="https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDN8fHdvb2RzfGVufDB8fHx8MTYyNjQ0NzU3Mw&amp;ixlib=rb-1.2.1&amp;w=1000"
-            rootClassName="rootClassName2"
-          ></GalleryCard11>
-          <GalleryCard11
-            image_src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDE4fHxuYXR1cmV8ZW58MHx8fHwxNjI2NDQ3ODAw&amp;ixlib=rb-1.2.1&amp;w=1000"
-            rootClassName="rootClassName3"
-          ></GalleryCard11>
-          <GalleryCard11
-            image_src="https://images.unsplash.com/photo-1529948723647-8b7bd77b441c?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDExfHxjbGlmZnxlbnwwfHx8fDE2MjY0NDc4MjQ&amp;ixlib=rb-1.2.1&amp;w=1000"
-            rootClassName="rootClassName4"
-          ></GalleryCard11>
-          <GalleryCard11
-            image_src="https://images.unsplash.com/photo-1553570739-330b8db8a925?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDI0fHxvY2VhbnxlbnwwfHx8fDE2MjY0NDc4ODQ&amp;ixlib=rb-1.2.1&amp;w=1000"
-            rootClassName="rootClassName5"
-          ></GalleryCard11> */}
         </div>
       </div>
       <style jsx>

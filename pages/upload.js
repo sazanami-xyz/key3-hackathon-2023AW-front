@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import { ethers } from 'ethers';
 import { Web3Storage } from 'web3.storage'
 import Web3Mint from './utils/Web3Mint.json'
-import ImageLogo from "../public/Icons/image.svg";
 import { useRouter } from 'next/router'
 
 import NavigationLinks2 from '../components/navigation-links2'

@@ -8,8 +8,7 @@ import NavigationLinks1 from '../../components/navigation-links1'
 
 const Item = (props) => {
   const router = useRouter();
-  const name = router.query.name;
-
+  
   const title = router.query.title;
   const comment = router.query.comment;
   const image = router.query.image;
@@ -45,16 +44,10 @@ const Item = (props) => {
         alert("Get MetaMask!");
         return;
       }
-      /*
-       * ウォレットアドレスに対してアクセスをリクエストしています。
-       */
       const accounts = await ethereum.request({
         method: "eth_requestAccounts",
       });
       console.log("Connected", accounts[0]);
-      /*
-       * ウォレットアドレスを currentAccount に紐付けます。
-       */
       setCurrentAccount(accounts[0]);
     } catch (error) {
       console.log(error);
