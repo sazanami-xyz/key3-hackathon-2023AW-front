@@ -55,7 +55,7 @@ const Item = (props) => {
   };
 
   const CONTRACT_ADDRESS =
-  '0xD20E9C24cdD9535a41eA69bD98d0C40BDdFF36B3';
+  '0x5a2474F2C16E858a86308aACd0DB717c24B4A693';
 
   const addLike = async () => {
     try {
