@@ -1,8 +1,7 @@
 # key3-hackathon-2023AW-front
+# テックスタック
 
-## テックスタック
-
-###　フレームワーク
+### フレームワーク
 React, Nextjs
 
 ### htmlのデザイン
