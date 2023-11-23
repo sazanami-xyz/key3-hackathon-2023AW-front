@@ -1,5 +1,8 @@
-# key3-hackathon-2023AW-front
-# テックスタック
+# key3-hackathon-2023AW-frontのフロントエンド
+key3ハッカソンに提出するプロダクトのフロントエンド側
+以下にテックスタックを記載
+
+## テックスタック
 
 ### フレームワーク
 React, Nextjs
